@@ -1,0 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+h1{
+    text-align: center;
+}
+
+#filter {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#filter input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 45%;
+}
+
+#filter button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#filter button:hover {
+  background-color: #45a049;
+}
+
+#dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#dataTable caption {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#dataTable th,
+#dataTable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#dataTable th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#dataTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#dataTable tr:hover {
+  background-color: #ddd;
+}
+
+#dataTable td:last-child {
+  text-align: center;
+}
+
+#dataTable th:last-child,
+#dataTable td:last-child {
+  width: 100px;
+}
+
+#dataTable th:first-child,
+#dataTable td:first-child {
+  width: 150px;
+}
+
+#dataTable th:nth-child(2),
+#dataTable td:nth-child(2) {
+  width: 150px;
+}
+
+#dataTable th:nth-child(3),
+#dataTable td:nth-child(3) {
+  width: 200px;
+}
