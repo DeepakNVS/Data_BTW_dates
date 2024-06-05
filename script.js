@@ -1,7 +1,7 @@
 const data = [
     {
-      checkInDate: '2024-04-01',
-      checkOutDate: '2024-04-05',
+      checkInDate: '2024-04-01T09:00:05',
+      checkOutDate: '2024-04-05T22:00:05',
       guestName: 'Chanakya',
       roomNumber: '101'
     },
@@ -124,14 +124,17 @@ const data = [
   function filterData() {
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
-    const filteredData = data.filter(item => {
-      const checkInDate = new Date(item.checkInDate);
-      const checkOutDate = new Date(item.checkOutDate);
-      return (
-        checkInDate >= new Date(startDate) &&
-        checkOutDate <= new Date(endDate)
-      );
-    });
+    let filteredData = data;
+    if (startDate && endDate) {
+      filteredData = data.filter(item => {
+        const checkInDate = new Date(item.checkInDate);
+        const checkOutDate = new Date(item.checkOutDate);
+        return (
+          checkInDate >= new Date(startDate) &&
+          checkOutDate <= new Date(endDate)
+        );
+      });
+    }
     displayData(filteredData);
   }
   
@@ -140,14 +143,28 @@ const data = [
     dataBody.innerHTML = '';
     data.forEach(item => {
       const row = document.createElement('tr');
+      const checkInDate = new Date(item.checkInDate).toLocaleString();
+      const checkOutDate = new Date(item.checkOutDate).toLocaleString();
       row.innerHTML = `
-        <td>${item.checkInDate}</td>
-        <td>${item.checkOutDate}</td>
+        <td>${checkInDate}</td>
+        <td>${checkOutDate}</td>
         <td>${item.guestName}</td>
         <td>${item.roomNumber}</td>
       `;
       dataBody.appendChild(row);
     });
+  }
+
+  function GuestSearch() {
+    let x = document.getElementById("guestName").value;
+    const filteredData = data.filter(item => item.guestName.toLowerCase().includes(x.toLowerCase()));
+    displayData(filteredData);
+  }
+
+  function RoomSearch() {
+    let x = document.getElementById("roomNum").value;
+    const filteredData = data.filter(item => item.roomNumber.toString().includes(x.toString()));
+    displayData(filteredData);
   }
   
   filterData();

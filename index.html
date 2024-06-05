@@ -5,23 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Hotel Entry and Exit Data</title>
-</head>
 <body>
   <h1>Hotel Entry and Exit Data</h1>
   <div id="filter">
     <label for="startDate">From:</label>
-    <input type="date" id="startDate" name="startDate">
+    <input type="datetime-local" id="startDate" name="startDate">
     <label for="endDate">To:</label>
-    <input type="date" id="endDate" name="endDate">
+    <input type="datetime-local" id="endDate" name="endDate">
     <button onclick="filterData()">Submit</button>
   </div>
   <table id="dataTable">
     <thead>
       <tr>
-        <th>Check-in Date</th>
-        <th>Check-out Date</th>
-        <th>Guest Name</th>
-        <th>Room Number</th>
+        <th>Check-in Date & Time</th>
+        <th>Check-out Date & Time</th>
+        <th>Guest Name
+          <input type="text" id="guestName" name="guestName" placeholder="Search Guest Name" oninput="GuestSearch()">
+        </th>
+        <th>Room Number
+            <input type="number" id="roomNum" name="roomNum" placeholder="Search Room" oninput="RoomSearch()">
+        </th>
       </tr>
     </thead>
     <tbody id="dataBody">
